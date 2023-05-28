@@ -1,4 +1,5 @@
 body {
+    font-family: Arial, Helvetica, sans-serif;
     position: fixed;
     height: 100%;
     width: 100%;
@@ -6,17 +7,132 @@ body {
     justify-content: center;
 }
 
+.card {
+    background-color: #011627;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+  }
+  
+  .top_bar{
+    position: relative;
+    margin-top:-20px;
+    margin-left:-20px;
+    margin-right:-20px;
+    width: initial;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height:2rem;
+    color: #FAFAFF;
+    background-color: #2292A4;
+  }
+  .top_bar p{
+    position:absolute;
+    top:-10px;
+    margin-left:10%;
+    margin-bottom:100%;
+  }
+  .close_button{
+    position: absolute;
+    right:-0px;
+    background-color: transparent;
+    border-color: transparent;
+    color:#FAFAFF;
+  }
+  .close_button:hover{
+    color:#011627
+  }
+  .close_button:active{
+    font-size:medium;
+  }
+  
+  .widget_form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .group {
+    position: relative;
+  }
+  
+  .widget_form .group label {
+    font-size: 14px;
+    color: #011627;
+    background-color: transparent;
+    position: absolute;
+    top:10px;
+    left: 10px;
+    background-color: transparent;
+    transition: all .3s ease;
+  }
+  
+  .widget_form .group input,
+  .widget_form .group textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    outline: 0;
+    width: 90%;
+    background-color: #FAFAFF;
+  }
+  
+  .widget_form .group input:placeholder-shown+ label, .widget_form .group textarea:placeholder-shown +label {
+    top: 15px;
+    background-color: transparent;
+  }
+
+  .widget_form .group input:not(:placeholder-shown)+label, .widget_form .group textarea:not(:placeholder-shown)+label{
+    top: -15px;
+    left: 5px;
+    background-color: transparent;
+    color: #FAFAFF;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .widget_form .group input:focus,
+  .widget_form .group textarea:focus {
+    border-color: #2292A4;
+  }
+  
+  .widget_form .group input:focus+ label, .widget_form .group textarea:focus +label {
+    top: -15px;
+    left: 5px;
+    background-color: transparent;
+    color: #FAFAFF;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .widget_form .group textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  .widget_form button {
+    background-color: #2292A4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .widget_form button:hover {
+    background-color: #1c6b77;
+  }
+  
+
 #main {
     display: flex;
     align-items: center;
     width: 13%;
 }
 
-.card {
-    width: 190px;
-    height: 254px;
-    margin: 0 auto;
-    background-color: #011627;
-    border-radius: 8px;
-    z-index: 1;
-   }
