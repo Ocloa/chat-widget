@@ -2,8 +2,7 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 const Router = require('./router');
-const { Console } = require('console');
-const PORT = 5501;
+const PORT = 5500;
 const HOST = 'localhost';
 
 let rout = new Router();
@@ -45,4 +44,8 @@ function widgetStyles(req,res){
 
 function widgetScript(req,res){
     return './script.js';
+}
+
+function submitData(){
+    
 }
