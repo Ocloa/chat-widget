@@ -1,5 +1,3 @@
-const widget_container = document.getElementById('widget_container');
-
 submit.onclick = async function() {
     const name = document.getElementById('Name');
     const email = document.getElementById('Email');
