@@ -8,28 +8,17 @@
     <link rel="stylesheet" href="wstyles.css">
 </head>
 <body>
-    <div id="main">
-        <div class="card">
-            <div class="top_bar">
-                <p>Виджет</p>
-                <button class="close_button">✖</button>
-            </div>
-            <form class="widget_form">
-              <div class="group">
-              <input placeholder=" " type="text" id="name" required="">
-              <label for="name">Имя</label>
-              </div>
-            <div class="group">
-              <input placeholder=" " type="email" id="email" name="email" required="">
-              <label for="email">Email</label>
-              </div>
-          <div class="group">
-              <textarea placeholder=" " id="question" name="question" rows="5" required=""></textarea>
-              <label for="question">Ваш вопрос</label>
-          </div>
-              <button type="submit" id="submit">Отправить</button>
-            </form>
+    <div class="main">
+        <div class="header">
+            <button class="close">X</button>
+        </div>
+        <div class="fill-area">
+            <input class="input" id="name" type="text" placeholder="Ваша фамилия">
+            <input class="input" id="email" type="text" placeholder="Ваша почта">
+            <textarea class="text-area" id="question" rows="5" placeholder="Ваш вопрос"></textarea>
+            <button id="submit">Отправить</button>
         </div>
     </div>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

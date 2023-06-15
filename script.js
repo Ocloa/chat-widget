@@ -1,17 +1,21 @@
-submit.onclick = async function() {
-    const name = document.getElementById('Name');
-    const email = document.getElementById('Email');
-    const question = document.getElementById('Question');
+const close = document.getElementsByClassName('close')
 
-    await fetch("/submit", {
+submit.onclick = async function() {
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const question = document.getElementById('question');
+    console.log(name)
+
+    let response = await fetch("/submit", {
         method: 'POST',
         headers:  {
         'Content-Type':'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            user_Name: name,
-            user_Email: email,
-            user_Question: question,
+            user_name: name,
+            user_email: email,
+            user_question: question,
         })
     });
+    console.log(response);
 };
