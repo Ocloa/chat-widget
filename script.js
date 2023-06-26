@@ -1,21 +1,29 @@
 const close = document.getElementsByClassName('close')
 
-submit.onclick = async function() {
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
-    const question = document.getElementById('question');
-    console.log(name)
+async function submit() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const question = document.getElementById('question').value;
 
-    let response = await fetch("/submit", {
-        method: 'POST',
-        headers:  {
-        'Content-Type':'application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-            user_name: name,
-            user_email: email,
-            user_question: question,
-        })
-    });
-    console.log(response);
+    try {
+        const response = await fetch("http://localhost:5505/submit", {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            headers:  {
+            'Content-Type':'application/json'
+            },
+            body: JSON.stringify({
+                user_name: name,
+                user_email: email,
+                user_question: question
+            })
+        });
+
+        const data = await response.json();
+        console.log(data);
+        
+    } catch (error) {
+        console.log(error);
+    }
 };

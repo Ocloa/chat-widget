@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Ocloa/chat-widget/issues"
   },
-  "homepage": "https://github.com/Ocloa/chat-widget#readme"
+  "homepage": "https://github.com/Ocloa/chat-widget#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "pg": "^8.11.0"
+  }
 }
