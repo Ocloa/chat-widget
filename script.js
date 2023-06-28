@@ -5,25 +5,31 @@ async function submit() {
     const email = document.getElementById('email').value;
     const question = document.getElementById('question').value;
 
-    try {
-        const response = await fetch("http://localhost:5505/submit", {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            headers:  {
-            'Content-Type':'application/json'
-            },
-            body: JSON.stringify({
-                user_name: name,
-                user_email: email,
-                user_question: question
-            })
-        });
+    if (ValidateEmail(email)) {
+        try {
+            const response = await fetch("http://localhost:5505/submit", {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                headers:  {
+                'Content-Type':'application/json'
+                },
+                body: JSON.stringify({
+                    user_name: name,
+                    user_email: email,
+                    user_question: question
+                })
+            });
 
-        const data = await response.json();
-        console.log(data);
-        
-    } catch (error) {
-        console.log(error);
+            alert('Вопрос добавлен.');
+        } catch (error) {
+            console.log(error);
+        }
     }
+    else alert('Ошибка! Неправильный формат электронной почты.');
 };
+
+function ValidateEmail(input) {
+    var validRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+    return validRegex.test(input);
+}
