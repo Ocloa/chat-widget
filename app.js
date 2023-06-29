@@ -5,11 +5,11 @@ const pool = require('./pool')
 const Router = require('./router');
 const PORT = 5505;
 const HOST = 'localhost';
-const cors = require('cors');
 
 let rout = new Router();
 
 let server = http.createServer((req,res) => {
+
     rout.appendRout('GET', '/widget', widgetForm);
     rout.appendRout('GET', '/wstyles.css', widgetStyles);
     rout.appendRout('GET', '/script.js', widgetScript);
@@ -40,7 +40,11 @@ let server = http.createServer((req,res) => {
 
 });
 
-server.listen(PORT, HOST, () => { console.log(`Сервер запущен: http://${HOST}:${PORT}`) });
+server.listen(PORT, HOST, () => { console.log(`Сервер запущен: http://${HOST}:${PORT}`); createTable();});
+
+function createTable() {
+    pool.query("CREATE TABLE IF NOT EXISTS questions(id SERIAL PRIMARY KEY, name TEXT NOT NULL, email TEXT NOT NULL, question TEXT NOT NULL)");
+}
 
 function widgetForm(req, res){
     return 'widget.html';
@@ -82,6 +86,6 @@ function submitData(req, res){
 
 async function addDataToDataBase(data, res) {
     console.log(data);
-    const query = await pool.query("INSERT INTO questions (name, email, question) VALUES ('"+data.user_name+"', '"+data.user_email+"', '"+data.user_question+"')");
+    pool.query("INSERT INTO questions (name, email, question) VALUES ('"+data.user_name+"', '"+data.user_email+"', '"+data.user_question+"')");
     res.end();
 }
